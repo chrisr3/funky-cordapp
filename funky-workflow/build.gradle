@@ -1,0 +1,43 @@
+plugins {
+    id 'net.corda.plugins.cordapp-cpk'
+    id 'net.corda.plugins.quasar-utils'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'maven-publish'
+}
+
+cordapp {
+    targetPlatformVersion = platformVersion.toInteger()
+
+    workflow {
+        name = 'Funky Workflow'
+        versionId = cordappWorkflowVersion.toInteger()
+        licence = 'Test-Licence'
+        vendor = 'R3'
+    }
+}
+
+quasar {
+    excludePackages = [
+        // For example...
+        'co.paralleluniverse**',
+        'com.esotericsoftware.**',
+        'jdk**'
+    ]
+    verbose = false
+    debug = false
+}
+
+dependencies {
+    cordapp project(':funky-contract')
+    cordapp "net.corda:corda-flows:$cordaReleaseVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.kotlin
+        }
+    }
+}

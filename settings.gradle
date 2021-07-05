@@ -1,0 +1,45 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven {
+            url "$artifactoryContextUrl/corda-releases"
+        }
+        maven {
+            url "$artifactoryContextUrl/corda-os-maven"
+            credentials {
+                username = cordaArtifactoryUsername
+                password = cordaArtifactoryPassword
+            }
+        }
+    }
+
+    plugins {
+        id 'net.corda.plugins.cordapp-cpk' version cordaPluginsVersion
+        id 'net.corda.plugins.quasar-utils' version cordaPluginsVersion
+        id 'net.corda.cordapp.cordapp-configuration' version cordaReleaseVersion
+        id 'org.jetbrains.kotlin.jvm' version kotlinVersion
+        id 'org.jetbrains.kotlin.plugin.noarg' version kotlinVersion
+        id 'org.jetbrains.kotlin.plugin.allopen' version kotlinVersion
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        maven {
+            url "$artifactoryContextUrl/corda-os-maven"
+            credentials {
+                username = cordaArtifactoryUsername
+                password = cordaArtifactoryPassword
+            }
+        }
+        maven {
+            url "$artifactoryContextUrl/corda-dependencies"
+        }
+    }
+}
+
+rootProject.name = 'funky-cordapp'
+
+include 'funky-contract'
+include 'funky-workflow'

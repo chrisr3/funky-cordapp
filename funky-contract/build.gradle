@@ -1,0 +1,33 @@
+plugins {
+    id 'net.corda.plugins.cordapp-cpk'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'org.jetbrains.kotlin.plugin.noarg'
+    id 'org.jetbrains.kotlin.plugin.allopen'
+    id 'maven-publish'
+}
+
+cordapp {
+    targetPlatformVersion = platformVersion.toInteger()
+
+    contract {
+        name = 'Funky Contract'
+        versionId = cordappContractVersion.toInteger()
+        licence = 'Test-Licence'
+        vendor = 'R3'
+    }
+}
+
+dependencies {
+    cordaProvided "net.corda:corda-application:$cordaReleaseVersion"
+    cordaProvided "net.corda:corda-ledger:$cordaReleaseVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.kotlin
+        }
+    }
+}
