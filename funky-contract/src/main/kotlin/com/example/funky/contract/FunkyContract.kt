@@ -4,7 +4,7 @@ import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Table
 import net.corda.v5.application.identity.AbstractParty
-import net.corda.v5.application.services.persistence.MappedSchema
+import net.corda.v5.persistence.MappedSchema
 import net.corda.v5.base.annotations.CordaSerializable
 import net.corda.v5.ledger.contracts.Contract
 import net.corda.v5.ledger.contracts.requireThat
