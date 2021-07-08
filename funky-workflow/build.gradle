@@ -6,11 +6,11 @@ plugins {
 }
 
 cordapp {
-    targetPlatformVersion = platformVersion.toInteger()
+    targetPlatformVersion = platformVersion as Integer
 
     workflow {
         name = 'Funky Workflow'
-        versionId = cordappWorkflowVersion.toInteger()
+        versionId = cordappWorkflowVersion as Integer
         licence = 'Test-Licence'
         vendor = 'R3'
     }

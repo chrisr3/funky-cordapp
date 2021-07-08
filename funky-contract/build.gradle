@@ -7,11 +7,11 @@ plugins {
 }
 
 cordapp {
-    targetPlatformVersion = platformVersion.toInteger()
+    targetPlatformVersion = platformVersion as Integer
 
     contract {
         name = 'Funky Contract'
-        versionId = cordappContractVersion.toInteger()
+        versionId = cordappContractVersion as Integer
         licence = 'Test-Licence'
         vendor = 'R3'
     }
