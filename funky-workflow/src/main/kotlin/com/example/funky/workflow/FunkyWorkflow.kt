@@ -9,6 +9,6 @@ class FunkyWorkflow : Flow<SecureHash> {
     @Suspendable
     override fun call(): SecureHash {
         Funk(setOf("Funk1", "Funk2"))
-        return SecureHash.randomSHA256()
+        return SecureHash.create("SHA-256:ae62a19ed14ae8554245a47850a110d0dee0e084564ef70039bcd0cb2b4925e4")
     }
 }
