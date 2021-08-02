@@ -15,6 +15,7 @@ pluginManagement {
 
     plugins {
         id 'net.corda.plugins.cordapp-cpk' version cordaPluginsVersion
+        id 'net.corda.plugins.cordapp-cpb' version cordaPluginsVersion
         id 'net.corda.plugins.quasar-utils' version cordaPluginsVersion
         id 'net.corda.cordapp.cordapp-configuration' version cordaReleaseVersion
         id 'org.jetbrains.kotlin.jvm' version kotlinVersion
