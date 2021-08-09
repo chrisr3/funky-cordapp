@@ -7,8 +7,8 @@ pluginManagement {
         maven {
             url "$artifactoryContextUrl/corda-os-maven"
             credentials {
-                username = cordaArtifactoryUsername
-                password = cordaArtifactoryPassword
+                username = settings.ext.find('cordaArtifactoryUsername') ?: System.getenv('CORDA_ARTIFACTORY_USERNAME')
+                password = settings.ext.find('cordaArtifactoryPassword') ?: System.getenv('CORDA_ARTIFACTORY_PASSWORD')
             }
         }
     }
@@ -19,7 +19,7 @@ pluginManagement {
         id 'net.corda.plugins.quasar-utils' version cordaPluginsVersion
         id 'net.corda.cordapp.cordapp-configuration' version cordaReleaseVersion
         id 'org.jetbrains.kotlin.jvm' version kotlinVersion
-        id 'org.jetbrains.kotlin.plugin.noarg' version kotlinVersion
+        id 'org.jetbrains.kotlin.plugin.jpa' version kotlinVersion
         id 'org.jetbrains.kotlin.plugin.allopen' version kotlinVersion
     }
 }
@@ -30,8 +30,8 @@ dependencyResolutionManagement {
         maven {
             url "$artifactoryContextUrl/corda-os-maven"
             credentials {
-                username = cordaArtifactoryUsername
-                password = cordaArtifactoryPassword
+                username = settings.ext.find('cordaArtifactoryUsername') ?: System.getenv('CORDA_ARTIFACTORY_USERNAME')
+                password = settings.ext.find('cordaArtifactoryPassword') ?: System.getenv('CORDA_ARTIFACTORY_PASSWORD')
             }
         }
         maven {

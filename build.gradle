@@ -19,7 +19,7 @@ subprojects {
         }
     }
 
-    pluginManager.withPlugin('org.jetbrains.kotlin.plugin.noarg') {
+    pluginManager.withPlugin('org.jetbrains.kotlin.plugin.jpa') {
         noArg {
             annotations(
                 'javax.persistence.Entity',
