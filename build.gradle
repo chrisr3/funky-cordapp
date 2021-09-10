@@ -66,6 +66,10 @@ subprojects {
 
     tasks.withType(Test).configureEach {
         useJUnitPlatform()
+
+        doFirst {
+            systemProperty 'java.io.tmpdir', buildDir.absolutePath
+        }
     }
 
     tasks.withType(GenerateModuleMetadata).configureEach {
