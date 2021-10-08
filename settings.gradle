@@ -2,6 +2,12 @@ pluginManagement {
     repositories {
         gradlePluginPortal()
         maven {
+            url "$artifactoryContextUrl/corda-releases"
+            content {
+                includeGroupByRegex 'net\\.corda\\.plugins(\\..*)?'
+            }
+        }
+        maven {
             url "$artifactoryContextUrl/corda-os-maven"
             authentication {
                 basic(BasicAuthentication)
