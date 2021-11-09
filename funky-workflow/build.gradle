@@ -30,8 +30,6 @@ quasar {
 dependencies {
     cordapp project(':funky-contract')
     cordapp "net.corda:corda-flows:$cordaReleaseVersion"
-    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
 publishing {

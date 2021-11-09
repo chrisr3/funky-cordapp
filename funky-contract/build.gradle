@@ -21,8 +21,6 @@ dependencies {
     cordaProvided "net.corda:corda-application:$cordaReleaseVersion"
     cordaProvided "net.corda:corda-persistence:$cordaReleaseVersion"
     cordaProvided "net.corda:corda-ledger:$cordaReleaseVersion"
-    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
 publishing {

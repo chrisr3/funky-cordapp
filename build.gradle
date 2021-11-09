@@ -16,6 +16,14 @@ subprojects {
             toolchain {
                 languageVersion = of(11)
             }
+
+            testing {
+                suites {
+                    test {
+                        useJUnitJupiter(junitVersion)
+                    }
+                }
+            }
         }
     }
 
@@ -55,8 +63,6 @@ subprojects {
     }
 
     tasks.withType(Test).configureEach {
-        useJUnitPlatform()
-
         doFirst {
             systemProperty 'java.io.tmpdir', buildDir.absolutePath
         }
@@ -68,5 +74,5 @@ subprojects {
 }
 
 wrapper {
-    gradleVersion = '7.2'
+    gradleVersion = '7.3'
 }
