@@ -35,11 +35,7 @@ dependencies {
 publishing {
     publications {
         maven(MavenPublication) {
-            from components.kotlin
-
-            pluginManager.withPlugin('net.corda.plugins.cordapp-cpk') {
-                artifact tasks.named('cpk', Jar)
-            }
+            from components.cordapp
         }
     }
 }
