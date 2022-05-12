@@ -1,6 +1,5 @@
 pluginManagement {
     repositories {
-        gradlePluginPortal()
         maven {
             url "$artifactoryContextUrl/corda-releases"
             content {
@@ -17,6 +16,7 @@ pluginManagement {
                 password = settings.ext.find('cordaArtifactoryPassword') ?: System.getenv('CORDA_ARTIFACTORY_PASSWORD')
             }
         }
+        gradlePluginPortal()
     }
 
     plugins {
@@ -32,7 +32,9 @@ pluginManagement {
 
 dependencyResolutionManagement {
     repositories {
-        mavenCentral()
+        maven {
+            url "$artifactoryContextUrl/corda-dependencies-dev"
+        }
         maven {
             url "$artifactoryContextUrl/corda-os-maven"
             authentication {
@@ -43,6 +45,7 @@ dependencyResolutionManagement {
                 password = settings.ext.find('cordaArtifactoryPassword') ?: System.getenv('CORDA_ARTIFACTORY_PASSWORD')
             }
         }
+        mavenCentral()
     }
 }
 
