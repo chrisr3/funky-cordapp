@@ -1,6 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import static org.gradle.jvm.toolchain.JavaLanguageVersion.of
-import static org.gradle.api.JavaVersion.VERSION_11
 
 plugins {
     id 'net.corda.cordapp.cordapp-configuration'
@@ -13,16 +12,20 @@ subprojects {
 
     pluginManager.withPlugin('java') {
         java {
-            toolchain {
-                languageVersion = of(11)
-            }
-
             testing {
                 suites {
                     test {
                         useJUnitJupiter(junitVersion)
                     }
                 }
+            }
+        }
+    }
+
+    pluginManager.withPlugin('org.jetbrains.kotlin.jvm') {
+        kotlin {
+            jvmToolchain {
+                languageVersion = of(11)
             }
         }
     }
@@ -61,7 +64,6 @@ subprojects {
             languageVersion = '1.6'
             apiVersion = '1.6'
             verbose = true
-            jvmTarget = VERSION_11
             freeCompilerArgs += [
                 '-Xjvm-default=all',
                 '-java-parameters'
