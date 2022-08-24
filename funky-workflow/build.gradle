@@ -1,6 +1,5 @@
 plugins {
     id 'net.corda.plugins.cordapp-cpb'
-    id 'net.corda.plugins.quasar-utils'
     id 'org.jetbrains.kotlin.jvm'
     id 'maven-publish'
 }
@@ -14,17 +13,6 @@ cordapp {
         licence = 'Test-Licence'
         vendor = 'R3'
     }
-}
-
-quasar {
-    excludePackages = [
-        // For example...
-        'co.paralleluniverse**',
-        'com.esotericsoftware.**',
-        'jdk**'
-    ]
-    verbose = false
-    debug = false
 }
 
 dependencies {
